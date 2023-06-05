@@ -1,16 +1,13 @@
-# Dotfiles directory
-DOTFILES_DIR = ~/dotfiles
-# Neovim configuration directory
-NVIM_DIR = ~/.config/nvim
-# Neovim dotfiles directory
-NVIM_DOTFILES_DIR = $(DOTFILES_DIR)/.config/nvim
+SOURCE_NVIM_DIR := ~/dotfiles/.config/nvim
+TARGET_NVIM_DIR := ~/.config/nvim
 
-# Default target
-all: link-nvim
+all: nvim
 
-# Create directory structure and link neovim configuration files
-link-nvim:
-	find $(NVIM_DOTFILES_DIR) -type d -exec bash -c 'mkdir -p "$(NVIM_DIR)/$$(realpath --relative-to=$(NVIM_DOTFILES_DIR) {})"' \;
-	find $(NVIM_DOTFILES_DIR) -type f -exec bash -c 'ln -sf "{}" "$(NVIM_DIR)/$$(realpath --relative-to=$(NVIM_DOTFILES_DIR) {})"' \;
-
-.PHONY: all link-nvim
+nvim:
+	mkdir -p $(TARGET_NVIM_DIR)/after/plugin
+	mkdir -p $(TARGET_NVIM_DIR)/lua
+	mkdir -p $(TARGET_NVIM_DIR)/plugin
+	$(foreach source,$(wildcard $(SOURCE_NVIM_DIR)/after/plugin/*),ln -sf $(source) $(TARGET_NVIM_DIR)/after/plugin/$(notdir $(source));)
+	$(foreach source,$(wildcard $(SOURCE_NVIM_DIR)/lua/*),ln -sf $(source) $(TARGET_NVIM_DIR)/lua/$(notdir $(source));)
+	$(foreach source,$(wildcard $(SOURCE_NVIM_DIR)/plugin/*),ln -sf $(source) $(TARGET_NVIM_DIR)/plugin/$(notdir $(source));)
+	ln -sf $(SOURCE_NVIM_DIR)/init.lua $(TARGET_NVIM_DIR)/init.lua
