@@ -12,12 +12,35 @@ return require("packer").startup(function(use)
 		},
 	})
 	-- cording utils (from init.vim)
-	use("tpope/vim-commentary")
+
 	use("tpope/vim-surround")
 	use("tpope/vim-sleuth")
 	use("nathanaelkane/vim-indent-guides")
 	use("andymass/vim-matchup")
 	use("mattn/emmet-vim")
+
+	-- cording utils (lua)
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup({
+				---LHS of toggle mappings in NORMAL mode
+				toggler = {
+					---Line-comment toggle keymap
+					line = "cm",
+					---Block-comment toggle keymap
+					block = "gbc",
+				},
+				---LHS of operator-pending mappings in NORMAL and VISUAL mode
+				opleader = {
+					---Line-comment keymap
+					line = "cmm",
+					---Block-comment keymap
+					block = "gb",
+				},
+			})
+		end,
+	})
 
 	-- fuzzy finder
 	use("nvim-lua/plenary.nvim")

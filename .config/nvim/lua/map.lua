@@ -30,9 +30,6 @@ if vim.fn.has("macunix") == 1 then
 	keymap.set("v", "˚", "'<-2<CR>gv=gv")
 end
 
-keymap.set("n", "cm", "<Plug>CommentaryLine")
-keymap.set("v", "cm", "<Plug>CommentaryLine")
-
 vim.g.indent_guides_enable_on_vim_startup = 1
 
 -- Telescope
