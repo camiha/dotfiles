@@ -131,3 +131,5 @@ keymap.set("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 
 -- Floating terminal
 keymap.set({ "n", "t" }, "<Leader>t", "<cmd>Lspsaga term_toggle<CR>")
+-- neo-tree
+keymap.set("n", "<Leader>nt", "<cmd>Neotree reveal<CR>")
