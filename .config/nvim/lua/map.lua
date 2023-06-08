@@ -32,6 +32,7 @@ end
 
 keymap.set("n", "cm", "<Plug>CommentaryLine")
 keymap.set("v", "cm", "<Plug>CommentaryLine")
+
 vim.g.indent_guides_enable_on_vim_startup = 1
 
 -- Telescope
@@ -52,7 +53,7 @@ end)
 keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 
 -- Code action
-keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
+keymap.set({ "n", "v" }, "<leader>hi", "<cmd>Lspsaga code_action<CR>")
 
 -- Rename all occurrences of the hovered word for the entire file
 keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>")
@@ -123,7 +124,7 @@ keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 -- Note that if you use hover with ++keep, pressing this key again will
 -- close the hover window. If you want to jump to the hover window
 -- you should use the wincmd command "<C-w>w"
-keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>")
+-- keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>")
 
 -- Call hierarchy
 keymap.set("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
@@ -131,5 +132,6 @@ keymap.set("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 
 -- Floating terminal
 keymap.set({ "n", "t" }, "<Leader>t", "<cmd>Lspsaga term_toggle<CR>")
+
 -- neo-tree
 keymap.set("n", "<Leader>nt", "<cmd>Neotree reveal<CR>")
