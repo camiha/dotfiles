@@ -1,3 +1,6 @@
+ZSH_SOURCE_DIR := ~/dotfiles/zsh
+ZSH_TARGET_DIR := ~
+
 NVIM_SOURCE_DIR := ~/dotfiles/.config/nvim
 NVIM_TARGET_DIR := ~/.config/nvim
 NVIM_PACKER_DIR := ~/.local/share/nvim/site/pack/packer/start/packer.nvim
@@ -5,7 +8,11 @@ NVIM_PACKER_DIR := ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 LAZYGIT_SOURCE_DIR := ~/dotfiles/lazygit
 LAZYGIT_TARGET_DIR := ~/Library/Application\ Support/lazygit
 
-all: nvim lazygit
+all: zsh nvim lazygit
+
+.PHONY: zsh
+zsh:
+	ln -sf $(ZSH_SOURCE_DIR)/.zshrc $(ZSH_TARGET_DIR)/.zshrc
 
 .PHONY: nvim
 nvim:
@@ -25,3 +32,5 @@ lazygit:
 	echo "lazygit"
 	mkdir -p $(LAZYGIT_TARGET_DIR)
 	ln -sf $(LAZYGIT_SOURCE_DIR)/config.yml $(LAZYGIT_TARGET_DIR)/config.yml
+
+
