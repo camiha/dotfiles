@@ -23,7 +23,6 @@ return require("packer").startup(function(use)
 	-- cording utils (lua)
 	use({
 		"numToStr/Comment.nvim",
-		opt = true,
 		config = function()
 			require("Comment").setup({
 				---LHS of toggle mappings in NORMAL mode
@@ -49,7 +48,6 @@ return require("packer").startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		opt = true,
 		requires = {
-			"nvim-lua/pleanry.nvim",
 			"nvim-lua/plenary.nvim",
 		},
 	})
