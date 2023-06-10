@@ -50,6 +50,7 @@ return require("packer").startup(function(use)
 		opt = true,
 		requires = {
 			"nvim-lua/pleanry.nvim",
+			"nvim-lua/plenary.nvim",
 		},
 	})
 	use({
