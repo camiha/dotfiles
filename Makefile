@@ -22,9 +22,11 @@ nvim:
 	mkdir -p $(NVIM_TARGET_DIR)/after/plugin
 	mkdir -p $(NVIM_TARGET_DIR)/lua
 	mkdir -p $(NVIM_TARGET_DIR)/plugin
+	mkdir -p $(NVIM_TARGET_DIR)/snippets
 	$(foreach source,$(wildcard $(NVIM_SOURCE_DIR)/after/plugin/*),ln -sf $(source) $(NVIM_TARGET_DIR)/after/plugin/$(notdir $(source));)
 	$(foreach source,$(wildcard $(NVIM_SOURCE_DIR)/lua/*),ln -sf $(source) $(NVIM_TARGET_DIR)/lua/$(notdir $(source));)
 	$(foreach source,$(wildcard $(NVIM_SOURCE_DIR)/plugin/*),ln -sf $(source) $(NVIM_TARGET_DIR)/plugin/$(notdir $(source));)
+	$(foreach source,$(wildcard $(NVIM_SOURCE_DIR)/snippets/*),ln -sf $(source) $(NVIM_TARGET_DIR)/snippets/$(notdir $(source));)
 	ln -sf $(NVIM_SOURCE_DIR)/init.lua $(NVIM_TARGET_DIR)/init.lua
 
 .PHONY: lazygit

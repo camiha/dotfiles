@@ -67,15 +67,24 @@ return require("packer").startup(function(use)
 	})
 
 	-- completion
-	use({ "hrsh7th/nvim-cmp" })
-	use({ "hrsh7th/cmp-nvim-lsp", requires = { "neovim/nvim-lspconfig", "hrsh7th/nvim-cmp" } })
-	use({ "hrsh7th/cmp-buffer", requires = { "hrsh7th/nvim-cmp" } })
-	use({ "hrsh7th/cmp-path", requires = { "hrsh7th/nvim-cmp" } })
-	use({ "hrsh7th/cmp-cmdline", requires = { "hrsh7th/nvim-cmp" } })
-
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "hrsh7th/cmp-cmdline" },
+			{
+				"saadparwaiz1/cmp_luasnip",
+				requires = {
+					"L3MON4D3/LuaSnip",
+					module = "luasnip",
+				},
+			},
+		},
+	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
