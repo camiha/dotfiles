@@ -16,17 +16,6 @@ local sources = {
 	null_ls.builtins.diagnostics.tsc.with({
 		prefer_local = "node_modules/.bin",
 	}),
-
-	-- null_ls.builtins.diagnostics.eslint.with({
-	-- 	prefer_local = "node_modules/.bin",
-	-- }),
-	-- null_ls.builtins.code_actions.eslint.with({
-	-- 	prefer_local = "node_modules/.bin",
-	-- }),
-	-- null_ls.builtins.formatting.eslint.with({
-	-- 	prefer_local = "node_modules/.bin",
-	-- }),
-
 	null_ls.builtins.diagnostics.stylelint.with({
 		prefer_local = "node_modules/.bin",
 	}),
@@ -34,21 +23,20 @@ local sources = {
 		prefer_local = "node_modules/.bin",
 	}),
 
-	-- null_ls.builtins.formatting.prettier.with({
-	-- prefer_local = "node_modules/.bin",
-	-- }),
-
-	null_ls.builtins.code_actions.eslint_d.with({
-		prefer_local = "node_modules/.bin",
-	}),
-	null_ls.builtins.diagnostics.eslint_d.with({
-		prefer_local = "node_modules/.bin",
-	}),
-	null_ls.builtins.formatting.eslint_d.with({
-		prefer_local = "node_modules/.bin",
-	}),
+	null_ls.builtins.code_actions.eslint_d.with({}),
+	null_ls.builtins.diagnostics.eslint_d.with({}),
+	null_ls.builtins.formatting.eslint_d,
 	null_ls.builtins.formatting.prettierd.with({
-		prefer_local = "node_modules/.bin",
+		filetypes = {
+			"css",
+			"scss",
+			"less",
+			"html",
+			"json",
+			"yaml",
+			"markdown",
+			"graphql",
+		},
 	}),
 }
 
