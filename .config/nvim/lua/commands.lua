@@ -8,3 +8,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = { "plugins.lua" },
 	command = "PackerCompile",
 })
+
+vim.cmd([[
+augroup FileTypeAutocmd
+  autocmd!
+  autocmd BufNewFile,BufRead *.njk setlocal filetype=jinja
+augroup END
+]])
+
+vim.cmd('command! LuaSnipEdit :lua require("luasnip.loaders").edit_snippet_files()')

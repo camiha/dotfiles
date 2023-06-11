@@ -45,7 +45,6 @@ return require("packer").startup(function(use)
 	-- fuzzy finder
 	use({
 		"nvim-telescope/telescope.nvim",
-
 		requires = {
 			"nvim-lua/plenary.nvim",
 		},
@@ -109,6 +108,9 @@ return require("packer").startup(function(use)
 			"MunifTanjim/nui.nvim",
 		},
 	})
+
+	-- languages
+	use({ "Glench/Vim-Jinja2-Syntax" })
 
 	-- extra
 	use({ "github/copilot.vim" })
