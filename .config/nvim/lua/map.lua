@@ -133,4 +133,33 @@ keymap.set("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 -- neo-tree
 -- keymap.set("n", "<Leader>nt", "<cmd>Neotree reveal<CR>")
 keymap.set("n", "<Leader>t", "<cmd>Neotree reveal position=float<CR>")
+
 keymap.set("n", "<C-z>", "<cmd>ZenMode<cr>", { silent = true })
+
+-- -- Press <Tab> to expand or jump in a snippet. These can also be mapped separately
+-- -- via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+-- keymap.set(
+-- 	"i",
+-- 	"<Tab>",
+-- 	"v:lua.require('luasnip').expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'",
+-- 	{ expr = true, silent = true }
+-- )
+-- -- -1 for jumping backwards.
+-- keymap.set("i", "<S-Tab>", "<cmd>lua require('luasnip').jump(-1)<CR>", { silent = true })
+--
+-- keymap.set("s", "<Tab>", "<cmd>lua require('luasnip').jump(1)<CR>", { silent = true })
+-- keymap.set("s", "<S-Tab>", "<cmd>lua require('luasnip').jump(-1)<CR>", { silent = true })
+--
+-- -- For changing choices in choiceNodes (not strictly necessary for a basic setup).
+-- keymap.set(
+-- 	"i",
+-- 	"<C-E>",
+-- 	"v:lua.require('luasnip').choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'",
+-- 	{ expr = true, silent = true }
+-- )
+-- keymap.set(
+-- 	"s",
+-- 	"<C-E>",
+-- 	"v:lua.require('luasnip').choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'",
+-- 	{ expr = true, silent = true }
+-- )
