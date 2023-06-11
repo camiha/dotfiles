@@ -12,4 +12,7 @@ require("lspsaga").setup({
 	-- See Customizing Lspsaga's Appearance
 	-- For default options for each command, see below
 	-- etc.
+	ui = {
+		code_action = "",
+	},
 })
