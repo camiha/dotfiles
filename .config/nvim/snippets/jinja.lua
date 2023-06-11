@@ -1,17 +1,9 @@
+local ls = require("luasnip")
+local parse = ls.parser.parse_snippet
+
 return {
-	s("-hds", {
-		t({ '<br class="u-hidden-down-sm">', i(1) }),
-	}, { description = "u-hidden-down-sm" }),
-
-	s("-hum", {
-		t({ '<br class="u-hidden-up-md">', i(1) }),
-	}, { description = "u-hidden-up-md" }),
-
-	s("-r", {
-		t({ "{{ macro.ResponsiveImage(images, '", i(1), "')}}" }),
-	}, { description = "macro.ResponsiveImage" }),
-
-	s("-i", {
-		t({ "{{ macro.Image(images,'", i(1), "')}}" }),
-	}, { description = "macro.Image" }),
+	parse({ trig = "mr" }, '{{ macro.ResponsiveImage(images, "${1}") }}${0}'),
+	parse({ trig = "mi" }, '{{ macro.Image(images, "${1}") }}${0}'),
+	parse({ trig = "bds" }, '<br class="u-hidden-down-sm">${0}'),
+	parse({ trig = "bum" }, '<br class="u-hidden-up-md">${0}'),
 }
