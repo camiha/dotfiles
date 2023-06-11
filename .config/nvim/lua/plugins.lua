@@ -53,6 +53,14 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+
+	use({
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	})
+
 	-- fuzzy finder
 	use({
 		"nvim-telescope/telescope.nvim",
