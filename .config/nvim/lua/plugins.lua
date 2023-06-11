@@ -128,6 +128,11 @@ return require("packer").startup(function(use)
 		},
 	})
 
+	-- git
+	use({
+		"lewis6991/gitsigns.nvim",
+	})
+
 	-- languages
 	use({ "Glench/Vim-Jinja2-Syntax" })
 
