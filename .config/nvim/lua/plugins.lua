@@ -112,5 +112,6 @@ return require("packer").startup(function(use)
 
 	-- extra
 	use({ "github/copilot.vim" })
+	use({ "folke/zen-mode.nvim" })
 	use({ "dstein64/vim-startuptime" })
 end)

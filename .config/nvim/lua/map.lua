@@ -133,3 +133,4 @@ keymap.set("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 -- neo-tree
 -- keymap.set("n", "<Leader>nt", "<cmd>Neotree reveal<CR>")
 keymap.set("n", "<Leader>t", "<cmd>Neotree reveal position=float<CR>")
+keymap.set("n", "<C-z>", "<cmd>ZenMode<cr>", { silent = true })
