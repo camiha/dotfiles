@@ -34,7 +34,7 @@ return require("packer").startup(function(use)
 				---LHS of operator-pending mappings in NORMAL and VISUAL mode
 				opleader = {
 					---Line-comment keymap
-					line = "lcm",
+					line = "cmm",
 					---Block-comment keymap
 					block = "gb",
 				},
