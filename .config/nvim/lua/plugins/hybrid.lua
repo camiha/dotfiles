@@ -1,6 +1,8 @@
-return {
+local hybrid = {
     "camiha/vim-hybrid",
     config = function()
         vim.cmd("colorscheme hybrid")
     end
 }
+
+return {hybrid}
