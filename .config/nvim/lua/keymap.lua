@@ -1,5 +1,5 @@
 local keymap = vim.keymap
-vim.g.mapleader = " "
+-- vim.g.mapleader = " " // init.luaで設定済み
 
 keymap.set("", " ", "<Nop>", { noremap = true, silent = true })
 keymap.set("i", "jk", "<Esc>")
@@ -31,3 +31,5 @@ if vim.fn.has("macunix") == 1 then
 end
 
 vim.g.indent_guides_enable_on_vim_startup = 1
+
+-- Telescope
