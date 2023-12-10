@@ -10,7 +10,6 @@ local neotree = {
     config = function()
         vim.keymap.set("n", "<Leader>b", "<cmd>Neotree reveal position=float<CR>")
     end
-
 }
 
 return { neotree }
