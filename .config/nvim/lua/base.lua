@@ -67,7 +67,7 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 
 -- view
 vim.g.hybrid_use_iTerm_colors = 1
-vim.cmd("colorscheme hybrid")
+-- vim.cmd("colorscheme hybrid")
 vim.cmd("highlight Normal ctermbg=none")
 vim.cmd("highlight NonText ctermbg=none")
 vim.cmd("highlight LineNr ctermbg=none")
