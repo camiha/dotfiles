@@ -22,7 +22,11 @@ local lsp = {
         lspconfig.stylelint_lsp.setup({})
         lspconfig.tailwindcss.setup({})
         -- ts/js
-        lspconfig.tsserver.setup({})
+        lspconfig.tsserver.setup({
+            root_dir = function(...)
+                return require("lspconfig.util").root_pattern("tsconfig.json")(...)
+            end,
+        })
         lspconfig.eslint.setup({
             root_dir = function(...)
                 return require("lspconfig.util").root_pattern(".eslintrc.js", ".eslintrc.cjs", ".eslint.config.js")(...)
