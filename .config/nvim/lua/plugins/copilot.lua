@@ -1,5 +1,6 @@
 local copilot = {
-    'zbirenbaum/copilot.lua',
-    cmd = "Copilot",
-    build = ":Copilot auth",
+    'github/copilot.vim',
+    lazy = false,
 }
+
+return {copilot}
