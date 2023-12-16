@@ -44,15 +44,12 @@ alias dot="cd ~/dotfiles"
 alias c="clear"
 alias o="open ."
 alias q="exit"
-
-alias scan="sudo arp-scan -I en0 -l"
-
 # --------------------------------
 # nvim alias
 # --------------------------------
 alias v="nvim"
 alias va="nvim ."
-alias nconf="cd ~/dotfiles && nvim .config/nvim/init.lua"
+alias nconf="cd ~/dotfiles/.config/nvim && nvim init.lua"
 alias obc="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian/Vault && nvim"
 
 # --------------------------------
