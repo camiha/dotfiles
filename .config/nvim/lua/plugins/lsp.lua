@@ -112,7 +112,7 @@ local lsp = {
 				
 				vim.keymap.set("n", "K",  "<cmd>Lspsaga hover_doc<CR>")
 				vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
-				vim.keymap.set("n", "gt", "<cmd>Lspsaga goto_type_definition<CR>")
+				vim.keymap.set("n", "gtd", "<cmd>Lspsaga goto_type_definition<CR>")
 				vim.keymap.set("n", "ca", "<cmd>Lspsaga code_action<CR>")
 				vim.keymap.set("n", "re", "<cmd>Lspsaga rename<CR>")
 				vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
