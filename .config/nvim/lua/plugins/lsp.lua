@@ -9,7 +9,7 @@ local lsp = {
         mason.setup()
         masonlspconfig.setup({
             ensure_installed = {
-            "html", "astro", "cssls", "tailwindcss", "stylelint_lsp", "tsserver", "eslint", "lua_ls"},
+            "html", "astro", "cssls", "tailwindcss", "stylelint_lsp", "tsserver", "eslint", "biome","lua_ls"},
             automatic_installation = true
         })
 
@@ -36,7 +36,12 @@ local lsp = {
                   buffer = bufnr,
                   command = "EslintFixAll",
                 })
-              end,
+            end,
+        })
+        lspconfig.biome.setup({
+            root_dir = function(...)
+                return require("lspconfig.util").root_pattern("biome.json")(...)
+            end,
         })
 
         -- lua settings
