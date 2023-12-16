@@ -107,6 +107,8 @@ alias dep="nun @fsouza/prettierd eslint_d"
 # Git
 # -------------------------------- #
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 alias lg='lazygit'
 alias gtr='cd "$(git rev-parse --show-toplevel)"'
 
@@ -143,3 +145,4 @@ function gitsub() {
 # -------------------------------- #
 alias scan="sudo arp-scan -I en0 -l"
 alias reload="source ~/.zshrc"
+
