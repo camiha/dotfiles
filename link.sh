@@ -1,26 +1,19 @@
-
 #!/bin/zsh
+set -eu
+DOTFILES_PATH=$(cd $(dirname $0); pwd)
 
-create_symlinks_with_dir() {
-    local source_dir=$1
-    local target_dir=$2
-    mkdir -p "$target_dir"
-    for file in "$source_dir"/*; do
-        if [ -d "$file" ]; then
-            mkdir -p "$target_dir/$(basename "$file")"
-            create_symlinks_with_dir "$file" "$target_dir/$(basename "$file")"
-        else
-            ln -sf "$file" "$target_dir/$(basename "$file")"
-        fi
-    done
-}
-
-NVIM_SOURCE_DIR="$(pwd)/nvim"
-NVIM_TARGET_DIR="$HOME/.config/nvim"
-
-rm -rf "$NVIM_TARGET_DIR"
-create_symlinks_with_dir "$NVIM_SOURCE_DIR" "$NVIM_TARGET_DIR"
-
-ln -sf "$(pwd)/zsh/.zshrc" "$HOME/.zshrc"
-
-echo "symlinks created successfully."
+for i in .??*; do
+    [ $i == ".git" ] && continue
+    [ $i == ".gitignore" ] && continue
+    [ $i == ".DS_Store" ] && continue
+    if [ -d "$DOTFILES_PATH/$i" ]; then
+        for j in $DOTFILES_PATH/$i/*; do
+            if [ -d "$j" ]; then
+                mkdir -p ~/$(basename $j)
+            fi
+            ln -snfv "$j" ~/$(basename $i)/$(basename $j)
+        done
+    else
+        ln -snf "${DOTFILES_PATH}"/"$i" ~/"$i"
+    fi
+done

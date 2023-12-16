@@ -52,7 +52,7 @@ alias scan="sudo arp-scan -I en0 -l"
 # --------------------------------
 alias v="nvim"
 alias va="nvim ."
-alias nconf="cd ~/dotfiles/nvim/ && nvim init.lua"
+alias nconf="cd ~/dotfiles && nvim .config/nvim/init.lua"
 alias obc="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian/Vault && nvim"
 
 # --------------------------------
