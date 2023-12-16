@@ -145,3 +145,4 @@ function gitsub() {
 # other tools
 # -------------------------------- #
 alias scan="sudo arp-scan -I en0 -l"
+alias reload="source ~/.zshrc"
