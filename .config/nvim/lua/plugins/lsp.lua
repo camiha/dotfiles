@@ -1,27 +1,31 @@
 local lsp = {
     "neovim/nvim-lspconfig",
+    dependencies = {
+        {"hrsh7th/cmp-nvim-lsp"}
+    },
     config = function()
         local lspconfig = require('lspconfig')
         local util = require("lspconfig.util")
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
         -- npm i -g typescript typescript-language-server
         lspconfig.tsserver.setup({
+            capabilities = capabilities,
             root_dir = function(...)
                 return require("lspconfig.util").root_pattern("tsconfig.json")(...)
             end,
         })
 
         -- npm i -g vscode-langservers-extracted
-        lspconfig.html.setup({})
-
-        --Enable (broadcasting) snippet capability for completion
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
+        lspconfig.html.setup {
+            capabilities = capabilities,
+        }
         lspconfig.cssls.setup {
           capabilities = capabilities,
         }
 
         lspconfig.eslint.setup({
+            capabilities = capabilities,
             on_attach = function(client, bufnr)
                 vim.api.nvim_create_autocmd("BufWritePre", {
                   buffer = bufnr,
@@ -32,6 +36,7 @@ local lsp = {
 
         -- npm i -g stylelint-lsp
         lspconfig.stylelint_lsp.setup{
+            capabilities = capabilities,
             filetypes = {
                 "css",
                 "scss",
@@ -45,19 +50,25 @@ local lsp = {
 
         -- npm i -g @tailwindcss/language-server
         lspconfig.tailwindcss.setup({
+            capabilities = capabilities,
             root_dir = util.root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts')
         })
 
         -- npm i -g @astrojs/language-server
-        lspconfig.astro.setup({})
+        lspconfig.astro.setup({
+            capabilities = capabilities,
+        })
 
         lspconfig.biome.setup({
+            capabilities = capabilities,
             root_dir = util.root_pattern("biome.json"),
             single_file_support = false
         })
 
         -- lua settings
-        lspconfig.lua_ls.setup({})
+        lspconfig.lua_ls.setup({
+            capabilities = capabilities,
+        })
 
         -- keymaps
         vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
