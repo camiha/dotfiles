@@ -14,7 +14,7 @@ local formatter = {
                 }
             end
         }
-        local style = {
+        local style_default = {
             function()
                 return {
                     exe = "prettierd",
@@ -31,8 +31,11 @@ local formatter = {
                 javascriptreact = ts_default,
                 typescript = ts_default,
                 typescriptreact = ts_default,
-                css = style,
-                scss = style,
+                css = style_default,
+                scss = style_default,
+								lua = {
+								  require("formatter.filetypes.lua").stylua,
+								}
             }
         }
 
