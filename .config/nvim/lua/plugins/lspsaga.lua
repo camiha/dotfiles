@@ -13,6 +13,8 @@ local lspsaga = {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
 	},
+	lazy = true,
+	cmd = { "Lspsaga" },
 }
 
 return { lspsaga }

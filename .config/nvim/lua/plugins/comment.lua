@@ -3,6 +3,7 @@ local comment = {
 	config = function()
 		require("Comment").setup()
 	end,
+	lazy = true,
 }
 
-return {comment }
+return { comment }

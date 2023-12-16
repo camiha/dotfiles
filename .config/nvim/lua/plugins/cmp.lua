@@ -9,6 +9,7 @@ local cmp = {
 		{ "L3MON4D3/LuaSnip" },
 		{ "onsails/lspkind.nvim" },
 	},
+	lazy = true,
 
 	config = function()
 		local lspkind = require("lspkind")
