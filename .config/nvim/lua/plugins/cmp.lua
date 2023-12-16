@@ -52,9 +52,12 @@ local cmp = {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
+				{ name = "nvim_lsp_signature_help" },
+				{ name = "nvim_lua" },
+				{ name = "luasnip" },
+				{ name = "path" },
 			}, {
-				{ name = "buffer" },
+				{ name = "buffer", keyword_length = 3 },
 			}),
 		})
 		cmp.setup.cmdline({ "/", "?" }, {
