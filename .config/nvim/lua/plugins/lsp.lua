@@ -1,36 +1,27 @@
 local lsp = {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = {"williamboman/mason.nvim", "neovim/nvim-lspconfig"},
+    "neovim/nvim-lspconfig",
     config = function()
-        local mason = require('mason')
-        local masonlspconfig = require("mason-lspconfig")
         local lspconfig = require('lspconfig')
+        local util = require("lspconfig.util")
 
-        mason.setup()
-        masonlspconfig.setup({
-            ensure_installed = {
-            "html", "astro", "cssls", "tailwindcss", "stylelint_lsp", "tsserver", "eslint", "biome","lua_ls"},
-            automatic_installation = true
-        })
-
-        -- fontend settings
-        -- markup
-        lspconfig.html.setup({})
-        lspconfig.astro.setup({})
-        -- css
-        lspconfig.cssls.setup({})
-        lspconfig.stylelint_lsp.setup({})
-        lspconfig.tailwindcss.setup({})
-        -- ts/js
+        -- npm i -g typescript typescript-language-server
         lspconfig.tsserver.setup({
             root_dir = function(...)
                 return require("lspconfig.util").root_pattern("tsconfig.json")(...)
             end,
         })
+
+        -- npm i -g vscode-langservers-extracted
+        lspconfig.html.setup({})
+
+        --Enable (broadcasting) snippet capability for completion
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+        lspconfig.cssls.setup {
+          capabilities = capabilities,
+        }
+
         lspconfig.eslint.setup({
-            root_dir = function(...)
-                return require("lspconfig.util").root_pattern(".eslintrc.js", ".eslintrc.cjs", ".eslint.config.js")(...)
-            end,
             on_attach = function(client, bufnr)
                 vim.api.nvim_create_autocmd("BufWritePre", {
                   buffer = bufnr,
@@ -38,10 +29,31 @@ local lsp = {
                 })
             end,
         })
+
+        -- npm i -g stylelint-lsp
+        lspconfig.stylelint_lsp.setup{
+            filetypes = {
+                "css",
+                "scss",
+            },
+            settings = {
+              stylelintplus = {
+                autoFixOnSave = true,
+              }
+            }
+          }
+
+        -- npm i -g @tailwindcss/language-server
+        lspconfig.tailwindcss.setup({
+            root_dir = util.root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts')
+        })
+
+        -- npm i -g @astrojs/language-server
+        lspconfig.astro.setup({})
+
         lspconfig.biome.setup({
-            root_dir = function(...)
-                return require("lspconfig.util").root_pattern("biome.json")(...)
-            end,
+            root_dir = util.root_pattern("biome.json"),
+            single_file_support = false
         })
 
         -- lua settings
