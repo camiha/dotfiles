@@ -146,3 +146,4 @@ function gitsub() {
 alias scan="sudo arp-scan -I en0 -l"
 alias reload="source ~/.zshrc"
 
+alias ff='cd $(find . -name "*" -type d -not -path "*/node_modules/*" | fzf)'
