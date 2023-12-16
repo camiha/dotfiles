@@ -7,9 +7,11 @@ local cmp = {
 		{ "hrsh7th/cmp-cmdline" },
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "L3MON4D3/LuaSnip" },
+		{ "onsails/lspkind.nvim" },
 	},
 
 	config = function()
+		local lspkind = require("lspkind")
 		local luasnip = require("luasnip")
 		local cmp = require("cmp")
 		cmp.setup({
@@ -17,6 +19,18 @@ local cmp = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
 			},
+
+			formatting = {
+				format = lspkind.cmp_format({
+					mode = "symbol",
+					maxwidth = 50,
+					ellipsis_char = "...",
+					before = function(entry, vim_item)
+						return vim_item
+					end,
+				}),
+			},
+
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -51,9 +65,8 @@ local cmp = {
 				end, { "i", "s" }),
 			}),
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
+				{ name = "nvim_lsp", keyword_length = 1 },
 				{ name = "nvim_lsp_signature_help" },
-				{ name = "nvim_lua" },
 				{ name = "luasnip" },
 				{ name = "path" },
 			}, {
