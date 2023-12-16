@@ -9,7 +9,7 @@ local lsp = {
         mason.setup()
         masonlspconfig.setup({
             ensure_installed = {
-            "html", "astro", "cssls", "tailwindcss", "stylelint_lsp", "tsserver", "lua_ls"},
+            "html", "astro", "cssls", "tailwindcss", "stylelint_lsp", "tsserver", "eslint", "lua_ls"},
             automatic_installation = true
         })
 
@@ -23,6 +23,17 @@ local lsp = {
         lspconfig.tailwindcss.setup({})
         -- ts/js
         lspconfig.tsserver.setup({})
+        lspconfig.eslint.setup({
+            root_dir = function(...)
+                return require("lspconfig.util").root_pattern(".eslintrc.js", ".eslintrc.cjs", ".eslint.config.js")(...)
+            end,
+            on_attach = function(client, bufnr)
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                  buffer = bufnr,
+                  command = "EslintFixAll",
+                })
+              end,
+        })
 
         -- lua settings
         lspconfig.lua_ls.setup({})
