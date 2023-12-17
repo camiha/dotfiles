@@ -77,6 +77,15 @@ local lsp = {
 			capabilities = lsp_capabilities,
 		})
 
+		-- local javalsp = os.getenv("HOME") .. "/lsp/java-language-server/dist/lang_server_mac.sh"
+
+		-- java settings
+		lspconfig.jdtls.setup({
+			capabilities = lsp_capabilities,
+		})
+
+		-- local sumneko_root_path = vim.fn.expand("$HOME") .. "/lsp/lua-language-server"
+
 		-- keymaps
 		-- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 		-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)

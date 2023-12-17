@@ -17,7 +17,8 @@ local copilot = {
         javascriptreact = true,
         typescript = true,
         typescriptreact = true,
-      }
+				java = false,
+      },
     })
     vim.keymap.set('i', '<Tab>', function()
       if require("copilot.suggestion").is_visible() then

@@ -37,6 +37,9 @@ local formatter = {
 				lua = {
 					require("formatter.filetypes.lua").stylua,
 				},
+				java = {
+					require("formatter.filetypes.java").clangformat,
+				},
 			},
 		})
 
