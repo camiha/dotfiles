@@ -18,6 +18,7 @@ local treesitter = {
 				"json",
 				"html",
 				"markdown",
+				"markdown_inline",
 			},
 			highlight = {
 				enable = true,
