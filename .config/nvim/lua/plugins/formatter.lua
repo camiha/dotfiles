@@ -1,6 +1,7 @@
 local formatter = {
 	"mhartington/formatter.nvim",
 	lazy = true,
+	keys = { { "<leader>fm", "<cmd>Format<CR>" }, { "<leader>Fm", "<cmd>FormatWrite<CR>" } },
 	cmd = { "Format", "FormatWrite" },
 	config = function()
 		local util = require("formatter.util")

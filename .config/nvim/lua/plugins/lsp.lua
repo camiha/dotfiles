@@ -91,8 +91,8 @@ local lsp = {
 				-- 	buffer = ev.buf,
 				-- }
 				-- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-				-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+				--			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+				--		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 				-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 				-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 				-- vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
@@ -109,15 +109,14 @@ local lsp = {
 				-- 		async = true,
 				-- 	})
 				-- end, opts)
-				
-				vim.keymap.set("n", "K",  "<cmd>Lspsaga hover_doc<CR>")
+
+				vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 				vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
 				vim.keymap.set("n", "gtd", "<cmd>Lspsaga goto_type_definition<CR>")
 				vim.keymap.set("n", "ca", "<cmd>Lspsaga code_action<CR>")
 				vim.keymap.set("n", "re", "<cmd>Lspsaga rename<CR>")
 				vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")         
-
+				vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 			end,
 		})
 	end,

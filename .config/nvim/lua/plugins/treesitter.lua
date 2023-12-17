@@ -17,6 +17,7 @@ local treesitter = {
 				"scss",
 				"json",
 				"html",
+				"markdown",
 			},
 			highlight = {
 				enable = true,
