@@ -8,7 +8,7 @@ local neotree = {
 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
 	lazy = true,
-	cmd = { "Neotree" },
+  keys = {{"<leader>v", "<cmd>Neotree reveal position=float<CR>"}},
 	config = function()
 		vim.keymap.set("n", "<Leader>b", "<cmd>Neotree reveal position=float<CR>")
 	end,
