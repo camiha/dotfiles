@@ -35,10 +35,13 @@ vim.o.ruler = true
 vim.o.signcolumn = "yes"
 
 -- インデント設定
-vim.o.softtabstop = 2
-vim.o.tabstop = 2
+-- vim.o.softtabstop = 2
 vim.o.autoindent = true
-vim.o.smartindent = true
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+-- vim.o.smartindent = true
+-- vim.o.smarttab = true
 
 -- 検索時の設定
 vim.o.wrapscan = true

@@ -1,10 +1,10 @@
 local keymap = vim.keymap
--- vim.g.mapleader = " " // init.luaで設定済み
+vim.g.mapleader = " "
 
 keymap.set("", " ", "<Nop>", { noremap = true, silent = true })
 keymap.set("i", "jk", "<Esc>")
-keymap.set("n", "<Leader>w", ":w<CR>")
-keymap.set("n", "<Leader>q", ":q<CR>")
+-- keymap.set("n", "<Leader>s", ":w<CR>")
+-- keymap.set("n", "<Leader>q", ":q<CR>")
 
 -- 挙動の調整
 keymap.set("n", "Y", "y$")
@@ -31,5 +31,14 @@ if vim.fn.has("macunix") == 1 then
 end
 
 vim.g.indent_guides_enable_on_vim_startup = 1
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
--- Telescope
+-- buffer
+keymap.set("n", "<Leader>t", ":enew<CR>")
+keymap.set("n", "<Leader>w", ":bd<CR>")
+keymap.set("n", "<C-n>", ":bnext<CR>")
+keymap.set("n", "<C-m>", ":bprev<CR>")
+
+-- shortcut
+keymap.set("n", "<Leader>i", ":Neotree reveal position=left<CR>|<C-w>l|<Leader>ff")
+

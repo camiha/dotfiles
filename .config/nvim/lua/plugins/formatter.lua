@@ -34,6 +34,10 @@ local formatter = {
 				typescriptreact = ts_default,
 				css = style_default,
 				scss = style_default,
+				astro = ts_default,
+				json = {
+					require("formatter.filetypes.json").prettier,
+				},
 				lua = {
 					require("formatter.filetypes.lua").stylua,
 				},

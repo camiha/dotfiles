@@ -146,4 +146,11 @@ function gitsub() {
 alias scan="sudo arp-scan -I en0 -l"
 alias reload="source ~/.zshrc"
 
-alias ff='cd $(find . -name "*" -type d -not -path "*/node_modules/*" | fzf)'
+# alias ff='cd $(find . -name "*" -type d -not -path "*/node_modules/*" | fzf)'
+
+alias ff="fzf \
+  --header-lines=1 \
+  --preview 'bat --color=always {}' \
+  --preview-window=down"
+
+export PATH="$HOME/.anyenv/bin:$PATH"

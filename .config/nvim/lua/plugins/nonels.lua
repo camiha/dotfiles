@@ -6,6 +6,7 @@ local none_ls = {
 		require("null-ls").setup({
 			sources = {
 				cspell.diagnostics,
+				cspell.code_actions,
 			},
 		})
 	end,
